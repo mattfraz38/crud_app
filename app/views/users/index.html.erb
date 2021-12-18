@@ -1,0 +1,7 @@
+<% provide(:title, 'Users') %>
+
+<h1>Users Index</h1>
+
+<% @users.each do |user| %>
+  <p><%= link_to user.email, user_path(user) %></p>
+<% end %>
