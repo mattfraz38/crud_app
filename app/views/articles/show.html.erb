@@ -2,8 +2,11 @@
 
 <h1>Article Show</h1>
 
-<%= @article.title %>
-<%= @article.content %>
+<div>
+  <h2><%= @article.title %></h2>
+  <p><%= @article.content %></p>
+  <small><%= link_to @article.user.email, user_path(@article.user) %></small>
+</div>
 
 <br>
 <%= link_to 'All Articles', articles_path %>
