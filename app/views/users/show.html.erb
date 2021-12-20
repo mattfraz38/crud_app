@@ -1,8 +1,8 @@
-<% provide(:title, "#{@user.email}") %>
+<% provide(:title, "#{@user.username}") %>
 
 <h1>Show</h1>
 
-<p><%= @user.email %></p>
+<p><%= @user.username %></p>
 
 <%= link_to 'All Articles', articles_path %> |
 <%= link_to 'All Users', users_path %>
