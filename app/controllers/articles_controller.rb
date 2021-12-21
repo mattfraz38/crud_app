@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [ :show, :edit, :update, :destroy ] 
+  before_action :find_article, only: [ :show, :edit, :update, :destroy ] 
   before_action :authenticate_user!, except: [ :indes, :show ]
 
   def index
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article.new(article_params)
+    @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
       redirect_to @article
@@ -25,11 +25,11 @@ class ArticlesController < ApplicationController
 
   private
 
-  def set_article
+  def find_article
     @article = Article.find(params[:id])
   end
 
-  def require_params
+  def article_params
     params.require(:article).permit(:title, :content)
   end
 end
