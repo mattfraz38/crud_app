@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @article = @user.articles.build
   end
 
   private

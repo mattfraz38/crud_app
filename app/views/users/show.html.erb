@@ -7,6 +7,8 @@
 <%= link_to 'All Articles', articles_path %> |
 <%= link_to 'All Users', users_path %>
 
+<%= render 'shared/article_form' %>
+
 <% @user.articles.each do |article| %>
   <h2><%= article.title %></h2>
   <p><%= article.content %></p>
