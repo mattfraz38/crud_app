@@ -1,48 +1,58 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= provide(:title, @user.username) %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: false, autocomplete: 'off' %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="edit pt-3 pb-3 mb-5">
+  <div class="ps-3">
+    <%= link_to "Back", :back, class: "btn btn-secondary" %>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <div class="text-center">
+    <h2>Edit Account</h2>
+  </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: "row") do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field mb-3">
+      <%= f.label :username, class: "col-10 offset-1 col-md-6 offset-md-3" %><br />
+      <%= f.text_field :username, autofocus: false, autocomplete: 'off', class: "col-10 offset-1 col-md-6 offset-md-3" %>
+    </div>
+    
+    <div class="field mb-3">
+      <%= f.label :email, class: "col-10 offset-1 col-md-6 offset-md-3" %><br />
+      <%= f.email_field :email, autofocus: false, autocomplete: "email", class: "col-10 offset-1 col-md-6 offset-md-3" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field mb-3">
+      <%= f.label :password, class: "col-10 offset-1 col-md-6 offset-md-3" %><br /> 
+      <i class="col-10 offset-1 col-md-6 offset-md-3">(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "col-10 offset-1 col-md-6 offset-md-3" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em class="col-10 offset-1 col-md-6 offset-md-3"><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+    <div class="field mb-3">
+      <%= f.label :password_confirmation, class: "col-10 offset-1 col-md-6 offset-md-3" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-10 offset-1 col-md-6 offset-md-3" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+    <div class="field mb-3">
+      <%= f.label :current_password, class: "col-10 offset-1 col-md-6 offset-md-3" %><br /> 
+      <i class="col-10 offset-1 col-md-6 offset-md-3">(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "col-10 offset-1 col-md-6 offset-md-3 mb-3" %>
+    </div>
 
-<h3>Cancel my account</h3>
+    <div class="actions mb-5">
+      <%= f.submit "Update", class: "col-10 offset-1 col-md-6 offset-md-3 btn btn-primary" %>
+    </div>
+  <% end %>
+  <hr class="mb-5">
+  <h3 class="text-center">Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <p class="text-center">Good luck on your journey! <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "col-10 offset-1 col-md-6 offset-md-3 btn btn-danger mb-3" %></p>
+</div>
