@@ -1,36 +1,40 @@
-<div class="container">
-  <h2>Sign up</h2>
+<div class="container pt-3 pb-3">
+  <div class="text-center">
+    <h2>Sign up</h2>
+  </div>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "row g-3") do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "row") do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :username, class: "form-label" %><br />
-      <%= f.text_field :username, autofocus: false, autocomplete: 'off', class: "col-md-12" %>
+      <%= f.label :username, class: "form-label col-md-10 offset-md-1" %><br />
+      <%= f.text_field :username, autofocus: false, autocomplete: 'off', class: "col-12 col-md-10 offset-md-1" %>
     </div>
 
     <div class="field">
-      <%= f.label :email, class: "form-label" %><br />
-      <%= f.email_field :email, autofocus: false, autocomplete: 'off', class: "col-md-12" %>
+      <%= f.label :email, class: "form-label col-md-10 offset-md-1" %><br />
+      <%= f.email_field :email, autofocus: false, autocomplete: 'off', class: "col-12 col-md-10 offset-md-1" %>
     </div>
 
     <div class="field">
-      <%= f.label :password, class: "form-label" %>
+      <%= f.label :password, class: "form-label col-md-10 offset-md-1" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: 'off', class: "col-md-12" %>
+      <%= f.password_field :password, autocomplete: 'off', class: "col-12 col-md-10 offset-md-1" %>
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation, class: "form-label" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-md-12" %>
+    <div class="field mb-3">
+      <%= f.label :password_confirmation, class: "form-label col-12 col-md-10 offset-md-1" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-12 col-md-10 offset-md-1" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up", class: "col-md-12 btn btn-primary"%>
+      <%= f.submit "Sign up", class: "col-12 col-md-10 offset-md-1 btn btn-primary"%>
+    </div>
+
+    <div class="col-md-10 offset-md-1">
+      <%= render "devise/shared/links" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>
