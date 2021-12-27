@@ -1,13 +1,13 @@
-<%= form_with model: [@user, @article], local: true do |f| %>
+<%= form_with model: [@user, @article], local: true, class: "row" do |f| %>
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title, class: "col-10 offset-1 col-md-6 offset-md-3" %><br>
+    <%= f.text_field :title, class: "col-10 offset-1 col-md-6 offset-md-3" %>
   </p>
   <p>
-    <%= f.label :content %><br>
-    <%= f.text_area :content, size: "60x10" %>
+    <%= f.label :content, class: "col-10 offset-1 col-md-6 offset-md-3" %><br>
+    <%= f.text_area :content, size: "60x10", class: "col-10 offset-1 col-md-6 offset-md-3" %>
   </p>
   <p>
-    <%= f.submit %>
+  <%= f.submit :Submit, class: "col-10 offset-1 col-md-6 offset-md-3 btn btn-primary" %>
   </p>
 <% end %>

@@ -1,18 +1,40 @@
 <% provide(:title, "#{@user.username}") %>
 
-<h1>Show</h1>
-
-<p><%= @user.username %></p>
-
-<%= link_to 'All Articles', articles_path %> |
-<%= link_to 'All Users', users_path %>
+<div class="text-center mb-5">
+  <% if @user == current_user %>
+    <h1>Welcome <%= @user.username %>!</h1>
+  <% else %>
+    <h1>Welcome to <%= @user.username.pluralize %> Page!</h1>
+  <% end %>
+  <div class="mt-3">
+    <small>Member since: <%= @user.created_at.strftime("%B %e, %Y") %></small>
+  </div>
+</div>
 
 <% if @user == current_user %>
-  <%= render 'shared/article_form' %>
+  <div class="new-article py-5">
+    <h2 class="text-center mb-5">What's on your mind?</h2>
+      <%= render 'shared/article_form' %>
+  </div>
 <% end %>
 
-<% @user.articles.each do |article| %>
-  <h2><%= article.title %></h2>
-  <p><%= article.content %></p>
-  <small><%= article.created_at %></small>
-<% end %>
+<hr class="my-5">
+<div class="text-center mb-5">
+  <% if @user == current_user %>
+    <h3>My Works</h3>
+  <% else %>
+    <h3><%= @user.username.pluralize %> Works</h3>
+  <% end %>
+</div>
+
+<section class="mb-5">
+  <% @user.articles.each do |article| %>
+    <% if article.title && article.content %>
+      <div class="articles py-5 px-4 mb-3">
+        <h2><%= article.title %></h2>
+        <p><%= article.content %></p>
+        <small><%= article.created_at.strftime("%B %e, %Y") %></small>
+      </div>
+    <% end %>
+  <% end %>
+</section>
