@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @article = @user.articles.build
+    @user_articles = @user.articles.all.order("created_at DESC")
   end
 
   private

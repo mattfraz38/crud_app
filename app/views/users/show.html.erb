@@ -21,14 +21,18 @@
 <hr class="my-5">
 <div class="text-center mb-5">
   <% if @user == current_user %>
-    <h3>My Works</h3>
+    <% if @user.articles.count > 0 %>
+      <h3>My Works</h3>
+    <% else %>
+      <h3>Add an Article!</h3>
+    <% end %>
   <% else %>
     <h3><%= @user.username.pluralize %> Works</h3>
   <% end %>
 </div>
 
 <section class="mb-5">
-  <% @user.articles.each do |article| %>
+  <% @user_articles.each do |article| %>
     <% if article.title && article.content %>
       <div class="articles py-5 px-4 mb-3">
         <h2><%= article.title %></h2>
