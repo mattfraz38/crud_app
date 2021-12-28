@@ -1,12 +1,25 @@
 <% provide(:title, 'Articles') %>
 
-<h1>Articles Index</h1>
+<div class="text-center mb-5">
+  <h1>Read an Article</h1>
+</div>
 
 <% @articles.each do |article| %>
-  <div>
-    <p><%= link_to article.title, article_path(article) %></p>
-    <p><%= link_to article.user.username, user_path(article.user) %></p>
+<div class="articles py-3 px-3 mb-3">
+  <div class="text-center">
+    <%= link_to article.title.truncate(50), article_path(article) %>
   </div>
-<% end %>
 
-<%= link_to 'All Users', users_path %>
+  <hr>
+
+  <div>
+    <%= article.content.truncate(150) %>
+  </div>
+
+  <hr>
+
+  <div class="text-center">
+    <small><%= link_to article.user.username, user_path(article.user) %> | <%= article.created_at.strftime("%B %e, %Y") %></small>  
+  </div>
+</div>
+<% end %>
