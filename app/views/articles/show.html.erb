@@ -1,12 +1,18 @@
 <%= provide(:title, "#{@article.title}") %>
 
-<h1>Article Show</h1>
 
-<div>
-  <h2><%= @article.title %></h2>
-  <p><%= @article.content %></p>
-  <small><%= link_to @article.user.username, user_path(@article.user) %></small>
+<div class="articles py-5 px-3 mb-3">
+  <div class="text-center mb-5">
+    <h1><%= @article.title %></h1>
+  </div>
+
+  <div>
+      <p><%= @article.content %></p>
+  </div>
+
+  <div class="text-center pt-3">
+    <small><%= link_to @article.user.username, user_path(@article.user) %> | <%= @article.created_at.strftime("%B %e, %Y") %></small>  
+  </div>
 </div>
 
 <br>
-<%= link_to 'All Articles', articles_path %>
