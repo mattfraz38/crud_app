@@ -6,6 +6,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def search
+    # @users = User.where("username LIKE ?", "%" + params[:query] + "%")
+    if params[:query].present?
+      @users = User.where("username LIKE ?", "%#{params[:query]}%")
+    else
+      @users = User.all
+    end
+  end
+
   def show
     @article = @user.articles.build
     @user_articles = @user.articles.all.order("created_at DESC")

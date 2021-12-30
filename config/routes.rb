@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :articles, only: [ :index, :show, :new, :create ]
   
   get '/users/:id', to: 'users#show', as: :user_root
+  
+  get 'search', to: 'users#search'
 end
