@@ -6,6 +6,10 @@ class ArticlesController < ApplicationController
     @articles = Article.all.order("created_at DESC")
   end
 
+  def articles_search
+    @articles = Article.where("content LIKE ?", "%#{params[:query]}%")
+  end
+
   def show
   end
 

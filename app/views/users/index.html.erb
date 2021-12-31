@@ -5,7 +5,14 @@
 </div>
 
 <div class="mb-5">
-  <%= render "shared/search_form" %>
+<%= form_with url: "/users_search" , method: :get, local: true do |f| %>
+  <div class="d-flex flex-row justify-content-center">
+    <div class="w-50 me-1">
+      <%= f.text_field :query, class: "form-control", placeholder: "Search..." %>
+    </div>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  </div>
+<% end %>  
 </div>
 
 <table class="table table-striped text-center">

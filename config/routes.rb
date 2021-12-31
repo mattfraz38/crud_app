@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   
   get '/users/:id', to: 'users#show', as: :user_root
   
-  get 'search', to: 'users#search'
+  get 'users_search', to: 'users#users_search'
+  get 'articles_search', to: 'articles#articles_search'
 end

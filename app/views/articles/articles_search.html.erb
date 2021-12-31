@@ -1,0 +1,21 @@
+<h1>Article Search Results</h1>
+
+<% @articles.each do |article| %>
+<div class="articles py-3 px-3 mb-3">
+  <div class="text-center">
+    <%= link_to article.title.truncate(50), article_path(article) %>
+  </div>
+
+  <hr>
+
+  <div>
+    <%= article.content.truncate(300) %>
+  </div>
+
+  <hr>
+
+  <div class="text-center">
+    <small><%= link_to article.user.username, user_path(article.user) %> | <%= article.created_at.strftime("%B %e, %Y") %></small>  
+  </div>
+</div>
+<% end %>

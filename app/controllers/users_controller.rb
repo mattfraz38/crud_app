@@ -6,13 +6,13 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def search
+  def users_search
     # @users = User.where("username LIKE ?", "%" + params[:query] + "%")
-    if params[:query].present?
+    # if params[:query].present?
       @users = User.where("username LIKE ?", "%#{params[:query]}%")
-    else
-      @users = User.all
-    end
+    # else
+    #   @users = User.all
+    # end
   end
 
   def show

@@ -1,4 +1,15 @@
 <h1>Search Results</h1>
+
+<table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Number of Articles</th>
+      <th>Joined Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
     <% @users.each do |user| %>
     <tr>
       <td><%= link_to user.username, user_path(user) %></td>
@@ -6,3 +17,5 @@
       <td><%= user.created_at.strftime("%B %e, %Y") %></td>
     </tr>
     <% end %>
+  </tbody>
+</table>
