@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def articles_search
-    @articles = Article.where("content LIKE ?", "%#{params[:query]}%")
+    @articles = Article.where("title LIKE ? OR content LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
   end
 
   def show

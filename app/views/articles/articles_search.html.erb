@@ -1,4 +1,10 @@
-<h1>Article Search Results</h1>
+<%= provide(:title, 'Articles Search') %>
+
+<div class="text-center mb-5">
+  <h1>CRUD Articles</h1>
+</div>
+
+<%= link_to 'Back to Articles', articles_path, class: 'btn btn-secondary mb-3' %>
 
 <% @articles.each do |article| %>
 <div class="articles py-3 px-3 mb-3">
