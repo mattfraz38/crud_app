@@ -14,7 +14,9 @@
 <% if @user == current_user %>
   <div class="new-article py-5">
     <h2 class="text-center mb-5">What's on your mind?</h2>
-      <%= render 'shared/article_form' %>
+      <div class="">
+        <%= render 'shared/article_form' %>
+      </div>
   </div>
 <% end %>
 
