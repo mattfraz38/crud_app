@@ -14,13 +14,12 @@
 <% if @user == current_user %>
   <div class="new-article py-5">
     <h2 class="text-center mb-5">What's on your mind?</h2>
-      <div class="">
-        <%= render 'shared/article_form' %>
-      </div>
+    <%= render 'shared/article_form' %>
   </div>
 <% end %>
 
 <hr class="my-5">
+
 <div class="text-center mb-5">
   <% if @user == current_user %>
     <% if @user.articles.count > 0 %>
@@ -37,9 +36,16 @@
   <% @user_articles.each do |article| %>
     <% if article.title && article.content %>
       <div class="articles py-5 px-4 mb-3">
-        <h2><%= article.title %></h2>
+        <h2 class="text-center"><%= article.title %></h2>
+        <hr>
         <p><%= article.content %></p>
+        <hr>
         <small><%= article.created_at.strftime("%B %e, %Y") %></small>
+
+        <% if @article.user == current_user %>
+          <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger float-end" %>
+        <% end %>
+
       </div>
     <% end %>
   <% end %>

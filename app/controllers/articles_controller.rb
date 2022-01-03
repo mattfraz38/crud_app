@@ -21,11 +21,16 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
-      redirect_to @article
+      redirect_to user_path(current_user)
     else
       render 'new'
     end
   end
+
+  def destroy
+    @article.destroy
+    redirect_to user_path(current_user)
+  end  
 
   private
 
