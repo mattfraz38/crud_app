@@ -1,18 +1,13 @@
 <% provide(:title, 'Welcome') %>
-<%# 
-<div class="row call-to-action">
-  <section class="col-md brand">   %>
-    <%# <h1>Welcome to Static INDEX</h1> %>
-  <section class="mb-5">
-    <div class="d-flex justify-content-center">
-      <%= image_pack_tag "welcome_logo.svg", class: "welcome-logo" %>
-    </div>
-  </section>  
-  <%# </section>
 
-  <section class="sign-up col-md">  %>
-  <section class="sign-up w-50 mx-auto mb-5">
+<div class="row call-to-action d-flex justify-content-evenly">
+  <section class="col-lg-6 col-md-12 col-sm-12">
+    <div>
+      <%= image_pack_tag "welcome_logo.svg", class: "welcome-logo mb-5" %>
+    </div>
+  </section>
+
+  <section class="sign-up col-lg-4 col-md-12 col-sm-12 h-75 mb-5">
     <%= render "shared/sign_up_form" %>
   </section>
-  <%# </section>
-</div> %>
+</div>
