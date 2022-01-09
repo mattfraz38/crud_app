@@ -6,7 +6,7 @@ $primary: #158170;
   border-radius: 3px;
 }
 
-nav {
+nav, footer {
   background-color: #84E4E2;
 }
 
@@ -17,4 +17,17 @@ nav {
 .welcome-logo {
   width: 100%;
   border-radius: 5px;
+}
+
+.footer {
+  // quick fix to keep footer at bottom
+  margin-top: 200px;
+  padding: 25px;
+}
+
+.copyright {
+  color: #3C6766;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
