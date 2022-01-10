@@ -1,6 +1,12 @@
 $primary: #158170;
 @import "bootstrap";
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .sign-up, .sign-in, .edit, .new-article, .articles {
   background-color: #EEEEEE;
   border-radius: 3px;
@@ -20,9 +26,8 @@ nav, footer {
 }
 
 .footer {
-  // quick fix to keep footer at bottom
-  margin-top: 200px;
   padding: 25px;
+  margin-top: auto;
 }
 
 .copyright {
