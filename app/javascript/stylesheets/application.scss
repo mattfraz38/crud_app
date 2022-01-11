@@ -36,3 +36,9 @@ nav, footer {
   justify-content: center;
   align-items: center;
 }
+
+.social-media ol {
+  display: flex;
+  list-style-type: none;
+  justify-content: end;
+}
